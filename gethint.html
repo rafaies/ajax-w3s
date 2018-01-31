@@ -1,0 +1,44 @@
+<!--
+AJAX PHP Example
+https://www.w3schools.com/php/php_ajax_php.asp
+https://www.w3schools.com/php/showphp.asp?filename=demo_ajax_php
+
+https://www.w3schools.com/xml/ajax_php.asp
+https://www.w3schools.com/xml/tryit.asp?filename=tryajax_suggest_php
+
+
+The following example will demonstrate how a web page can communicate with a web server while a user type characters in an input field:
+
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Start typing a name in the input field below:</h3>
+
+<form action=""> 
+First name: <input type="text" id="txt1" onkeyup="showHint(this.value)">
+</form>
+
+<p>Suggestions: <span id="txtHint"></span></p> 
+
+<script>
+function showHint(str) {
+  var xhttp;
+  if (str.length == 0) { 
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("txtHint").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", "gethint.php?q="+str, true);
+  xhttp.send();   
+}
+</script>
+
+</body>
+</html>

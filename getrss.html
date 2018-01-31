@@ -1,0 +1,54 @@
+<!--
+PHP Example - AJAX RSS Reader
+
+https://www.w3schools.com/php/php_ajax_rss_reader.asp
+
+AJAX RSS Reader
+
+The following example will demonstrate an RSS reader, where the RSS-feed is loaded into a webpage without reloading:
+-->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PHP Example - AJAX RSS Reader</title>
+
+<script>
+function showRSS(str) {
+  if (str.length==0) {
+    document.getElementById("rssOutput").innerHTML="";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("rssOutput").innerHTML=this.responseText;
+    }
+  }
+  xmlhttp.open("GET","getrss.php?q="+str,true);
+  xmlhttp.send();
+}
+</script>
+</head>
+<body>
+<h1>AJAX RSS Reader</h1>
+<p>The following example will demonstrate an RSS reader, where the RSS-feed is loaded into a webpage without reloading:</p>
+<form>
+<select onchange="showRSS(this.value)">
+<option value="">Select an RSS-feed:</option>
+<option value="Google">Google News</option>
+<option value="NBC">NBC News</option>
+<option value="Xataka">Xataka</option>
+<option value="Microsiervos">Microsiervos</option>
+<option value="DiarioJaen">Diario Jaén</option>
+</select>
+</form>
+<br>
+<div id="rssOutput">RSS-feed will be listed here...</div>
+</body>
+</html> 
