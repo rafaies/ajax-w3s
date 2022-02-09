@@ -14,10 +14,10 @@ getrss.html
 $q=$_GET["q"];
 
 //find out which feed was selected
-if($q=="Google") {
-  $xml=("http://news.google.com/news?ned=us&topic=h&output=rss");
-} elseif($q=="NBC") {
-  $xml=("http://rss.msnbc.msn.com/id/3032091/device/rss/rss.xml");
+if($q=="INCIBE") {
+  $xml=("https://www.incibe-cert.es/feed/vulnerabilities");
+} elseif($q=="educacion") {
+  $xml=("http://www.juntadeandalucia.es/educacion/portals/delegate/rss/ced/portalconsejeria/alumnado/-/-/false/OR/true/ishare_noticefrom/DESC/");
 } elseif($q=="Xataka") {
   $xml=("http://feeds.weblogssl.com/xataka2");
 } elseif($q=="Microsiervos") {

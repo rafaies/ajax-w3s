@@ -10,7 +10,6 @@ https://www.w3schools.com/xml/tryit.asp?filename=tryajax_suggest_php
 The following example will demonstrate how a web page can communicate with a web server while a user type characters in an input field:
 
 -->
-
 <?php
 // Array with names
 $a[] = "Anna";

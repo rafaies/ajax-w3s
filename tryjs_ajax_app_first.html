@@ -1,0 +1,35 @@
+<!--
+AJAX Introduction
+https://www.w3schools.com/js/js_ajax_intro.asp
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_app_first
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id='showCD'></div>
+
+<script>
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        const xmlDoc = xhttp.responseXML;
+        const cd = xmlDoc.getElementsByTagName("CD");
+        myFunction(cd, 0);
+    }
+    xhttp.open("GET", "cd_catalog.xml");
+    xhttp.send();
+
+    function myFunction(cd, i) {
+        document.getElementById("showCD").innerHTML =
+            "Artist: " +
+            cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+            "<br>Title: " +
+            cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+            "<br>Year: " +
+            cd[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+    }
+</script>
+
+</body>
+</html>

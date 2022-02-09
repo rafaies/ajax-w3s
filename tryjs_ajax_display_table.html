@@ -1,0 +1,50 @@
+<!--
+AJAX Introduction
+https://www.w3schools.com/js/js_ajax_intro.asp
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_display_table
+-->
+<!DOCTYPE html>
+<html>
+<style>
+    table,th,td {
+        border : 1px solid black;
+        border-collapse: collapse;
+    }
+    th,td {
+        padding: 5px;
+    }
+</style>
+<body>
+
+<button type="button" onclick="loadXMLDoc()">Get my CD collection</button>
+<br><br>
+<table id="demo"></table>
+
+<script>
+    function loadXMLDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            const xmlDoc = xhttp.responseXML;
+            const cd = xmlDoc.getElementsByTagName("CD");
+            myFunction(cd)
+        }
+        xhttp.open("GET", "cd_catalog.xml");
+        xhttp.send();
+    }
+
+    function myFunction(cd) {
+        let table="<tr><th>Artist</th><th>Title</th></tr>";
+        for (let i = 0; i < cd.length; i++) {
+            table += "<tr><td>" +
+                cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+                "</td><td>" +
+                cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+                "</td></tr>";
+        }
+        document.getElementById("demo").innerHTML = table;
+    }
+</script>
+
+</body>
+</html>

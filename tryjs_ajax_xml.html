@@ -1,0 +1,35 @@
+<!--
+AJAX Introduction
+https://www.w3schools.com/js/js_ajax_intro.asp
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_xml
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<h2>Retrieve data from XML file</h2>
+
+<p><b>Status:</b> <span id="A1"></span></p>
+<p><b>Status text:</b> <span id="A2"></span></p>
+<p><b>Response:</b> <span id="A3"></span></p>
+
+<button onclick="loadDoc('note.xml')">Get XML data</button>
+
+<script>
+    function loadDoc(url) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById('A1').innerHTML = this.status;
+            document.getElementById('A2').innerHTML = this.statusText;
+            document.getElementById('A3').innerHTML = this.responseText;
+        }
+        xhttp.open("GET", url);
+        xhttp.send();
+    }
+</script>
+
+</body>
+</html>
