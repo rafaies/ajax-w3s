@@ -9,8 +9,10 @@ The following example will demonstrate how a web page can fetch information from
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <tittle>AJAX Database Example</tittle>
 <style>
 table {
     width: 100%;
@@ -30,7 +32,7 @@ th {text-align: left;}
 <?php
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost','root','','ajax_demo');
+$con = mysqli_connect('localhost','root','root','ajax_demo');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }

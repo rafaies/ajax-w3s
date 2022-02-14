@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+Array as JSON
+When using the JSON.parse() on JSON derived from an array, the method will return a JavaScript array, instead of a JavaScript object.
+https://www.w3schools.com/js/tryit.asp?filename=tryjson_ajax_array
+-->
+<html lang="en">
+<body>
+
+<h2>Fetch a JSON file with XMLHttpRequest</h2>
+<p>Content written as an JSON array will be converted into a JavaScript array.</p>
+<p id="demo"></p>
+
+<script>
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+        const myArr = JSON.parse(this.responseText);
+        document.getElementById("demo").innerHTML = myArr[0];
+    }
+    xmlhttp.open("GET", "json_demo_array.txt", true);
+    xmlhttp.send();
+</script>
+
+</body>
+</html>

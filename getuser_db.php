@@ -8,7 +8,7 @@ function conecta_db($dbname) {
 
 /* Variables de configuración de la conexión con la base de datos */
   $user = "root";  // usuario con el que se va conectar con MySQL
-  $pass = "";  // contraseña del usuario
+  $pass = "root";  // contraseña del usuario
 
   $host = "localhost";  // nombre o IP del host 
 
