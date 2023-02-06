@@ -1,0 +1,23 @@
+<!--
+JavaScript Fetch API
+https://www.w3schools.com/js/js_api_fetch.asp
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_api_fetch
+
+The example below fetches a file and displays the content:
+-->
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo">Fetch a file to change this text.</p>
+<script>
+
+let file = "fetch_info.txt"
+
+fetch (file)
+.then(x => x.text())
+.then(y => document.getElementById("demo").innerHTML = y);
+
+</script>
+</body>
+</html>

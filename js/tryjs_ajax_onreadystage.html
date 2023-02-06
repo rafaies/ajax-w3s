@@ -1,0 +1,31 @@
+<!--
+AJAX - The XMLHttpRequest Object
+https://www.w3schools.com/js/js_ajax_http.asp
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_onreadystage
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+    <h2>The XMLHttpRequest Object</h2>
+    <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<script>
+    function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "ajax_info.txt");
+        xhttp.send();
+    }
+</script>
+
+</body>
+</html>

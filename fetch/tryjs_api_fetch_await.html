@@ -1,0 +1,25 @@
+<!--
+JavaScript Fetch API
+https://www.w3schools.com/js/js_api_fetch.asp
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_api_fetch_await
+
+Since Fetch is based on async and await, the previous example above might be easier to understand like this:
+-->
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo">Fetch a file to change this text.</p>
+
+<script>
+getText("fetch_info.txt");
+
+async function getText(file) {
+  let x = await fetch(file);
+  let y = await x.text();
+  document.getElementById("demo").innerHTML = y;
+}
+</script>
+
+</body>
+</html>

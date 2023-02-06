@@ -1,0 +1,37 @@
+<!--
+AJAX - XMLHttpRequest
+https://www.w3schools.com/js/js_ajax_http_send.asp
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_asyncfalse
+
+Synchronous Request
+  To execute a synchronous request, change the third parameter in the open() method to false:
+     xhttp.open("GET", "ajax_info.txt", false); 
+
+Since the code will wait for server completion, there is no need for an onreadystatechange function
+
+Synchronous XMLHttpRequest (async = false) is not recommended because the JavaScript will stop executing until the server response is ready. If the server is busy or slow, the application will hang or stop.
+
+Modern developer tools are encouraged to warn about using synchronous requests and may throw an InvalidAccessError exception when it occurs.
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<p id="demo">Let AJAX change this text.</p>
+
+<button type="button" onclick="loadDoc()">Change Content</button>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "ajax_info.txt", false);
+  xhttp.send();
+  document.getElementById("demo").innerHTML = xhttp.responseText;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!--
+AJAX - XMLHttpRequest
+https://www.w3schools.com/js/js_ajax_http_send.asp
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_post2
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+ 
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+  xhttp.open("POST", "demo_post.php");
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("fname=Henry&lname=Ford");
+}
+</script>
+
+</body>
+</html>

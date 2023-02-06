@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+JSON PHP
+https://www.w3schools.com/js/js_json_php.asp
+
+Here is a JavaScript on the client, using an AJAX call to request the PHP file from the example demo_file.php:
+https://www.w3schools.com/js/tryit.asp?filename=tryjson_php_simple
+-->
+<html lang="en">
+<body>
+
+<h2>Get JSON Data from a PHP Server</h2>
+<p id="demo"></p>
+
+<script>
+    const xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onload = function() {
+        const myObj = JSON.parse(this.responseText);
+        document.getElementById("demo").innerHTML = myObj.name;
+    }
+    xmlhttp.open("GET", "demo_file.php");
+    xmlhttp.send();
+</script>
+
+</body>
+</html>

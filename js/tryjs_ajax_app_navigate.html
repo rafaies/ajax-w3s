@@ -1,0 +1,60 @@
+<!--
+XML Applications
+https://www.w3schools.com/js/js_ajax_applications.asp
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_app_first
+
+Navigate through XML nodes
+
+https://www.w3schools.com/xml/tryit.asp?filename=tryxml_app_navigate
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id='showCD'></div><br>
+<input type="button" onclick="previous()" value="<<">
+<input type="button" onclick="next()" value=">>">
+
+<script>
+    let i = 0;
+    let len;
+    let cd;
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        const xmlDoc = xhttp.responseXML;
+        cd = xmlDoc.getElementsByTagName("CD");
+        len = cd.length;
+        displayCD(i);
+    }
+    xhttp.open("GET", "cd_catalog.xml");
+    xhttp.send();
+
+    function displayCD(i) {
+        document.getElementById("showCD").innerHTML =
+            "Artist: " +
+            cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+            "<br>Title: " +
+            cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+            "<br>Year: " +
+            cd[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+    }
+
+    function next() {
+        if (i < len-1) {
+            i++;
+            displayCD(i);
+        }
+    }
+
+    function previous() {
+        if (i > 0) {
+            i--;
+            displayCD(i);
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!--
+AJAX Examples
+https://www.w3schools.com/js/js_ajax_examples.asp
+
+Create a XMLHttpRequest with a callback function, and retrieve data from a TXT file
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_callback
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+
+    <h2>The XMLHttpRequest Object</h2>
+
+    <button type="button" onclick="loadDoc('ajax_info.txt', myFunction)">Change Content
+    </button>
+</div>
+
+<script>
+    function loadDoc(url, xFunction) {
+        const xhttp=new XMLHttpRequest();
+        xhttp.onload = function() {xFunction(this);}
+        xhttp.open("GET", url);
+        xhttp.send();
+    }
+
+    function myFunction(xhttp) {
+        document.getElementById("demo").innerHTML =  xhttp.responseText;
+    }
+</script>
+</body>
+</html>

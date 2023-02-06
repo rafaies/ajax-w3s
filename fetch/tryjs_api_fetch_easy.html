@@ -1,0 +1,25 @@
+<!--
+JavaScript Fetch API
+https://www.w3schools.com/js/js_api_fetch.asp
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_api_fetch_easy
+
+Use understandable names instead of x and y like the previous example:
+-->
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo">Fetch a file to change this text.</p>
+
+<script>
+getText("fetch_info.txt");
+
+async function getText(file) {
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+  document.getElementById("demo").innerHTML = myText;
+}
+</script>
+
+</body>
+</html>

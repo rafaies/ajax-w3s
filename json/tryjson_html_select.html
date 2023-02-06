@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+JSON HTML
+https://www.w3schools.com/js/js_json_html.asp
+
+HTML Drop Down List
+
+Make an HTML drop down list with data received as JSON:
+https://www.w3schools.com/js/tryit.asp?filename=tryjson_html_select
+-->
+<html lang="en">
+<body>
+
+<h2>Make a drop down list based on JSON data.</h2>
+<p id="demo"></p>
+
+<script>
+    const dbParam = JSON.stringify({table:"customers",limit:20});
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+        const myObj = JSON.parse(this.responseText);
+        let text = "<select>"
+        for (let x in myObj) {
+            text += "<option>" + myObj[x].name + "</option>";
+        }
+        text += "</select>"
+        document.getElementById("demo").innerHTML = text;
+    }
+    xmlhttp.open("POST", "json_demo_html_table.php");
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("x=" + dbParam);
+</script>
+
+</body>
+</html>
