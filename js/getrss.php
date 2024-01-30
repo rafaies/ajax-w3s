@@ -14,8 +14,8 @@ getrss.html
 $q=$_GET["q"];
 
 //find out which feed was selected
-if($q=="INCIBE") {
-  $xml=("https://www.incibe-cert.es/feed/vulnerabilities");
+if($q=="rtve") {
+  $xml=("https://api2.rtve.es/rss/temas_ciencia-tecnologia.xml");
 } elseif($q=="educacion") {
   $xml=("http://www.juntadeandalucia.es/educacion/portals/delegate/rss/ced/portalconsejeria/alumnado/-/-/false/OR/true/ishare_noticefrom/DESC/");
 } elseif($q=="Xataka") {
